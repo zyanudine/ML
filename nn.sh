@@ -384,7 +384,7 @@ lr_pred
 # Test the Model
 We only perform forward propagation and return the final output from our neural network using the trained parameters here. 
 :
-makePrediction <- function(X, y, hidden_neurons){
+makePrediction <- function(X, y, hidden_neurons,train_model){
     layer_size <- getLayerSize(X, y, hidden_neurons)
     params <- train_model$updated_params
     fwd_prop <- forwardPropagation(X, params, layer_size)
@@ -393,7 +393,7 @@ makePrediction <- function(X, y, hidden_neurons){
     return (pred)
 }
 
-y_pred <- makePrediction(X_test, y_test, HIDDEN_NEURONS)
+y_pred <- makePrediction(X_test, y_test, HIDDEN_NEURONS,train_model)
 y_pred <- round(y_pred)
 
 
